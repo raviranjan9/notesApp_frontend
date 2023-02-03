@@ -36,7 +36,7 @@ const Signup = () => {
         if(name === "cPassword")
         {
             let elem = document.getElementById("cPassword");
-            if(user.password != value) elem.innerText = "Password and Confirm Password are not same";
+            if(user.password !== value) elem.innerText = "Password and Confirm Password are not same";
             else elem.innerText = "";
         }
         setUser({...user, [name]: value});
@@ -46,7 +46,7 @@ const Signup = () => {
         try{
             event.preventDefault();
             const{name, email, password, cPassword} = user;
-            if(password == cPassword){
+            if(password === cPassword){
                 const res = await axios.post(`${BASE_URL}/signup`, {
                     name: name, email: email, password: password
                 });                
