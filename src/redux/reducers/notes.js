@@ -26,28 +26,29 @@ const changeNotes = (notes = [], action) => {
         }  
         case SORT:
         {
-            if(action.payload.date == "CREATED")
+            if(action.payload.date === "CREATED")
             {   
-                if(action.payload.type == "OLDEST")
+                if(action.payload.type === "OLDEST")
                 { 
                     return [...notes.sort((note1, note2) => new Date(note1.createdOn).getTime() - new Date(note2.createdOn).getTime())];
                 }
-                else if(action.payload.type == "LATEST")
+                else if(action.payload.type === "LATEST")
                 {
                     return [...notes.sort((note1, note2) => new Date(note2.createdOn).getTime() - new Date(note1.createdOn).getTime())];
                 }
             }
-            else if(action.payload.date == "MODIFIED") 
+            else if(action.payload.date === "MODIFIED") 
             {   
-                if(action.payload.type == "OLDEST")
+                if(action.payload.type === "OLDEST")
                 { 
                     return [...notes.sort((note1, note2) => new Date(note1.createdOn).getTime() - new Date(note2.createdOn).getTime())];
                 }
-                else if(action.payload.type == "LATEST")
+                else if(action.payload.type === "LATEST")
                 {
                     return [...notes.sort((note1, note2) => new Date(note2.createdOn).getTime() - new Date(note1.createdOn).getTime())];
                 }
             }
+            break;
         }
         default: return notes;
     };
