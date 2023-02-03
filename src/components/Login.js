@@ -28,8 +28,8 @@ const Login = () =>{
                 navigate("/notes");
             };
         }catch(err){
-            if(err.response.status == 400) document.getElementById("email").innerText = "User does not exist";
-            else if(err.response.status == 401) document.getElementById("password").innerText = "Incorrect Password";
+            if(err.response.status === 400) document.getElementById("email").innerText = "User does not exist";
+            else if(err.response.status === 401) document.getElementById("password").innerText = "Incorrect Password";
         }
     };
 

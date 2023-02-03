@@ -14,26 +14,26 @@ const Signup = () => {
         value = event.target.value;
         const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*(-_=+)])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
-        if(name == "name")
+        if(name === "name")
         {
             let elem = document.getElementById("name");
             if(!(value.length > 1)) elem.innerText = "User name must be atleast 2 character long";
             else elem.innerText = "";
         }
-        if(name == "email")
+        if(name === "email")
         {
             let elem = document.getElementById("email");
             if(!value.match(emailPattern)) elem.innerText = "Enter valid email";
             else elem.innerText = "";
         }
-        if(name == "password")
+        if(name === "password")
         {
             let elem = document.getElementById("password");
             if(value.length < 8 || value.length > 16) elem.innerText = "Password must be min 8 and max 16 characters long";
             else if(!value.match(passwordPattern)) elem.innerText = "Password must contain alteast 1 lower, 1 upper, 1 numeric and 1 special characters";
             else elem.innerText = "";
         }
-        if(name == "cPassword")
+        if(name === "cPassword")
         {
             let elem = document.getElementById("cPassword");
             if(user.password != value) elem.innerText = "Password and Confirm Password are not same";
@@ -50,14 +50,14 @@ const Signup = () => {
                 const res = await axios.post(`${BASE_URL}/signup`, {
                     name: name, email: email, password: password
                 });                
-                if(res.status == 200){
+                if(res.status === 200){
                     alert("Signup Sucessfull");
                     setUser({name:"", email: "", password: "", cPassword: ""});
                     navigate("/login");
                 }
             }
         }catch(err){
-            if(err.response.status == 401)
+            if(err.response.status === 401)
             {
                 document.getElementById("email").innerText = "User already exist";
             }
