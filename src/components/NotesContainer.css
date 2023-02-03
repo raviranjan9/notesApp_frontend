@@ -1,0 +1,87 @@
+.notes_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.notes-container{
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+}
+.notes_container .wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0rem 4rem 0rem;
+}
+
+.notes_container .wrapper .search-field input{
+    margin-right: 2rem;
+    padding: 1rem .8rem;
+    width: 20rem;
+    font-size: 1.5rem;
+    border-radius: .3rem;
+}
+
+.notes_container .sort-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes_container .wrapper .sort-field .sort-field-created label, .notes_container .wrapper .sort-field .sort-field-modified label{
+    margin-right: 1rem;
+    padding: 1rem .5rem;
+    width: 20rem;
+    font-size: 1.5rem;
+    border-radius: .3rem;
+}
+
+.notes_container .wrapper .sort-field .sort-field-created select, .notes_container .wrapper .sort-field .sort-field-modified select{
+    margin-right: 2rem;
+    padding: 1rem .5rem;
+    width: 12rem;
+    font-size: 1.5rem;
+    border-radius: .3rem;
+}
+
+.notes_container .sort-field .sort-field-created select option, .notes_container .sort-field .sort-field-modified select option{
+    width: 10rem;
+    font-size: 2.5rem;
+}
+@media only screen and (max-width: 1035px){
+    .notes-container{
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(10, auto);
+    }
+}
+
+@media only screen and (max-width: 795px){
+    .notes-container{
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(10, auto);
+    }
+    
+}
+@media only screen and (max-width: 920px){
+    .notes_container .wrapper{
+        flex-direction: column;
+    }
+    .notes_container .wrapper .sort-field{
+        margin-top: 2rem;
+        flex-direction: column;
+    }
+    .notes_container .wrapper .sort-field .sort-field-modified{
+        margin-top: 1rem;
+    }
+}
+
+
+
+
+
+
