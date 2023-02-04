@@ -74,4 +74,9 @@
         flex-basis: 95%;
     }
 }
+@media only screen and (max-width: 400px){
+    .notes{
+        flex-basis: 90%;
+    }
+}
 

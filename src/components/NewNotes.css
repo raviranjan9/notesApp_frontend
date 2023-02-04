@@ -56,3 +56,8 @@
         max-width: 35rem;
     }
 }
+@media only screen and (max-width: 400px){
+    .newNotes-container{
+        max-width: 32rem;
+    }
+}
