@@ -18,13 +18,15 @@ const Signup = () => {
         {
             let elem = document.getElementById("name");
             if(!(value.length > 1)) elem.innerText = "User name must be atleast 2 character long";
-            else elem.innerText = "";
+            if(value.length === 0) elem.innerText = "";
+            if(value.length > 1) elem.innerText = "";
         }
         if(name === "email")
         {
             let elem = document.getElementById("email");
             if(!value.match(emailPattern)) elem.innerText = "Enter valid email";
             else elem.innerText = "";
+            if(value.length === 0) elem.innerText = "";
         }
         if(name === "password")
         {
@@ -32,12 +34,14 @@ const Signup = () => {
             if(value.length < 8 || value.length > 16) elem.innerText = "Password must be min 8 and max 16 characters long";
             else if(!value.match(passwordPattern)) elem.innerText = "Password must contain alteast 1 lower, 1 upper, 1 numeric and 1 special characters";
             else elem.innerText = "";
+            if(value.length === 0) elem.innerText = "";
         }
         if(name === "cPassword")
         {
             let elem = document.getElementById("cPassword");
-            if(user.password !== value) elem.innerText = "Password and Confirm Password are not same";
+            if(value.length !== 0 && user.password !== value) elem.innerText = "Password and Confirm Password are not same";
             else elem.innerText = "";
+            if(value.length === 0) elem.innerText = "";
         }
         setUser({...user, [name]: value});
     };

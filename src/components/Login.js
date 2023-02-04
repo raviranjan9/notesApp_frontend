@@ -11,6 +11,8 @@ const Login = () =>{
     const handleInput = (event) => {
         name = event.target.name;
         value = event.target.value;
+        if(name === "email" && value.length === 0) document.getElementById("email").innerText = "";
+        if(name === "password" && value.length === 0) document.getElementById("password").innerText = "";
         setUser({...user, [name]: value});
     };
 
