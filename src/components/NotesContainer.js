@@ -50,7 +50,7 @@ const NotesContainer = (props) => {
                        <div className="sort-field-created">
                             <label>Sort by:</label>
                             <label>Date Created</label>
-                            <select name="CREATED" id="options-created" onClick={sortCreated} style={{border: "2.5px solid black", fontSize:'1.8rem', padding: ".8rem"}}>
+                            <select name="CREATED" id="options-created" onChange={sortCreated} style={{border: "2.5px solid black", fontSize:'1.8rem', padding: ".8rem"}}>
                                 <option value="OLDEST">Oldest</option>
                                 <option value="LATEST">Latest</option>
                             </select>
@@ -58,7 +58,7 @@ const NotesContainer = (props) => {
                        <div className="sort-field-modified">
                             <label>Sort by:</label>
                             <label>Date Modified</label>
-                            <select name="MODIFIED" id="options-modified" onClick={sortModified} style={{border: "2.5px solid black", fontSize:'1.8rem', padding: ".8rem"}}>
+                            <select name="MODIFIED" id="options-modified" onChange={sortModified} style={{border: "2.5px solid black", fontSize:'1.8rem', padding: ".8rem"}}>
                                 <option value="OLDEST">Oldest</option>
                                 <option value="LATEST">Latest</option>
                             </select>

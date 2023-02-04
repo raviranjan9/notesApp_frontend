@@ -53,13 +53,22 @@
     width: 10rem;
     font-size: 2.5rem;
 }
+input[type="submit"]{
+    border: .1rem solid black;
+    margin-top: 1rem;
+    transition:all 0.3s linear;
+}
+input[type="submit"]:hover{
+    background-color: black;
+    /* color: #f7f7f7; */
+    color: #FFFAFA;
+}
 @media only screen and (max-width: 1035px){
     .notes-container{
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(10, auto);
     }
 }
-
 @media only screen and (max-width: 795px){
     .notes-container{
         /* grid-template-columns: repeat(1, auto);
