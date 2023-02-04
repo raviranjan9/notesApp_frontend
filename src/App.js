@@ -17,6 +17,7 @@ const App = () => {
     <div className="app">
           <Navbar/>
           <Routes>
+            <switch>
             <Route path="/login" element={<Login/>}></Route>
              {!localStorage.getItem('token') && <Route path="/" element={<Login/>}></Route>}
              {localStorage.getItem('token') && <Route path="/" element={<NotesContainer
@@ -26,6 +27,7 @@ const App = () => {
              currentId = {currentId} setCurrentId = {setCurrentId} />}></Route>}
             <Route path="/logout" element={<Login/>}></Route>
             <Route path="*" element = {<PageNotFound/>}></Route>
+            </switch>
           </Routes>
     </div>
     )
