@@ -1,4 +1,4 @@
-import './Navbar.css';
+import '../styles/Navbar.css';
 import {NavLink} from 'react-router-dom';
 import {useLocation} from 'react-router-dom';
 

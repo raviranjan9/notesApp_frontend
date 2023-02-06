@@ -1,4 +1,4 @@
-import './Login.css';
+import '../styles/Login.css';
 import { BASE_URL } from '../constants.js';
 import axios from 'axios';
 import {useState} from 'react';
@@ -8,9 +8,17 @@ const Login = () =>{
     const navigate = useNavigate();
     const[user, setUser] = useState({email: "", password: ""});
     let name, value;
+    const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const handleInput = (event) => {
         name = event.target.name;
         value = event.target.value;
+        if(name === "email" && value.length > 0){
+            if(!value.match(emailPattern)){
+                document.getElementById("email").innerText = "Enter a valid email";
+                document.getElementById("email").setAttribute("style", "color:red;");
+            }
+            else document.getElementById("email").innerText = "";
+        }
         if(name === "email" && value.length === 0) document.getElementById("email").innerText = "";
         if(name === "password" && value.length === 0) document.getElementById("password").innerText = "";
         setUser({...user, [name]: value});
@@ -30,8 +38,15 @@ const Login = () =>{
                 navigate("/notes");
             };
         }catch(err){
-            if(err.response.status === 400) document.getElementById("email").innerText = "User does not exist";
-            else if(err.response.status === 401) document.getElementById("password").innerText = "Incorrect Password";
+            if(err.response.status === 400) {
+                document.getElementById("email").innerText = "User does not exist";
+                document.getElementById("email").setAttribute("style", "color:red;");
+
+            }   
+            else if(err.response.status === 401) {
+                document.getElementById("password").innerText = "Incorrect password";
+                document.getElementById("password").setAttribute("style", "color:red;");
+            }
         }
     };
 

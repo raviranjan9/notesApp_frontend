@@ -1,4 +1,4 @@
-import './PageNotFound.css';
+import '../styles/PageNotFound.css';
 import { useNavigate } from "react-router";
 
 const PageNotFound = () =>{

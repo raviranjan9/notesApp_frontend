@@ -1,4 +1,4 @@
-import './Signup.css';
+import '../styles/Signup.css';
 
 import axios from 'axios';
 import {useState} from 'react';
@@ -17,29 +17,44 @@ const Signup = () => {
         if(name === "name")
         {
             let elem = document.getElementById("name");
-            if(!(value.length > 1)) elem.innerText = "User name must be atleast 2 character long";
+            if(!(value.length > 1)) {
+                elem.innerText = "User name must be atleast 2 character long";
+                elem.setAttribute("style", "color:red;");
+            }
             if(value.length === 0) elem.innerText = "";
             if(value.length > 1) elem.innerText = "";
         }
         if(name === "email")
         {
             let elem = document.getElementById("email");
-            if(!value.match(emailPattern)) elem.innerText = "Enter valid email";
+            if(!value.match(emailPattern)) {
+                elem.innerText = "Enter valid email";
+                elem.setAttribute("style", "color:red;");
+            }
             else elem.innerText = "";
             if(value.length === 0) elem.innerText = "";
         }
         if(name === "password")
         {
             let elem = document.getElementById("password");
-            if(value.length < 8 || value.length > 16) elem.innerText = "Password must be min 8 and max 16 characters long";
-            else if(!value.match(passwordPattern)) elem.innerText = "Password must contain alteast 1 lower, 1 upper, 1 numeric and 1 special characters";
+            if(value.length < 8 || value.length > 16) {
+                elem.innerText = "Password must be min 8 and max 16 characters long";
+                elem.setAttribute("style", "color:red;");
+            }     
+            else if(!value.match(passwordPattern)) {
+                elem.innerText = "Password must contain alteast 1 lower, 1 upper, 1 numeric and 1 special characters";
+                elem.setAttribute("style", "color:red;");
+            }
             else elem.innerText = "";
             if(value.length === 0) elem.innerText = "";
         }
         if(name === "cPassword")
         {
             let elem = document.getElementById("cPassword");
-            if(value.length !== 0 && user.password !== value) elem.innerText = "Password and Confirm Password are not same";
+            if(value.length !== 0 && user.password !== value) {
+                elem.innerText = "Password and confirm password is not same";
+                elem.setAttribute("style", "color:red;");
+            }
             else elem.innerText = "";
             if(value.length === 0) elem.innerText = "";
         }

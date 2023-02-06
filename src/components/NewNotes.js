@@ -1,4 +1,4 @@
-import './NewNotes.css';
+import '../styles/NewNotes.css';
 
 import {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';

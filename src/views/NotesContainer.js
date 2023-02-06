@@ -1,6 +1,6 @@
-import './NotesContainer.css';
-import Notes from './Notes.js'
-import NewNotes from './NewNotes';
+import '../styles/NotesContainer.css';
+import Notes from '../components/Notes.js'
+import NewNotes from '../components/NewNotes';
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {searchNotes, sortNotes, getNotes} from '../redux/actions/index.js';
@@ -16,7 +16,7 @@ const NotesContainer = (props) => {
         setSearch(event.target.value);
     }
     setTimeout(() => {
-        if(localStorage.getItem('msg') === "Token Expired") {localStorage.removeItem('msg'); localStorage.removeItem('token'); localStorage.removeItem('name'); navigate("/login"); alert("Session timed out. Please login again"); }
+        if(localStorage.getItem('msg') === "Token Expired") {localStorage.removeItem('msg'); localStorage.removeItem('token'); localStorage.removeItem('name'); navigate("/login"); alert("Session timed out. Please login again");}
     }, 1000);
     useEffect(() => {if(search.length > 0) {dispatch(searchNotes(search));}
         else{

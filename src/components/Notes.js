@@ -1,4 +1,4 @@
-import './Notes.css';
+import '../styles/Notes.css';
 import {useDispatch} from 'react-redux';
 import {deleteNotes} from '../redux/actions/index.js';
 
