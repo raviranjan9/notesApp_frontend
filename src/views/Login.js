@@ -17,6 +17,7 @@ const Login = () =>{
             if(!value.match(emailPattern)){
                 document.getElementById("email").innerText = "Enter a valid email";
                 document.getElementById("email").setAttribute("style", "color:red;");
+                setIsValidEmail(false);
             }
             else {
                 document.getElementById("email").innerText = "";
@@ -32,6 +33,7 @@ const Login = () =>{
         const {email, password} = user;
         try{
             event.preventDefault();
+            console.log(isValidEmail);
             if(!isValidEmail) return;
             const res = await axios.post(`${BASE_URL}/login`, {
                 email: email, password: password

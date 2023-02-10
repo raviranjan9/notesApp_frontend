@@ -21,6 +21,7 @@ const Signup = () => {
             if(!(value.length > 1)) {
                 elem.innerText = "User name must be atleast 2 character long";
                 elem.setAttribute("style", "color:red;");
+                setValid({...valid, validName: false});
             }
             if(value.length === 0) elem.innerText = "";
             if(value.length > 1) {
@@ -34,6 +35,7 @@ const Signup = () => {
             if(!value.match(emailPattern)) {
                 elem.innerText = "Enter valid email";
                 elem.setAttribute("style", "color:red;");
+                setValid({...valid, validEmail: false});
             }
             else {
                 elem.innerText = ""; 
@@ -47,10 +49,12 @@ const Signup = () => {
             if(value.length < 8 || value.length > 16) {
                 elem.innerText = "Password must be min 8 and max 16 characters long";
                 elem.setAttribute("style", "color:red;");
+                setValid({...valid, validPassword: false});
             }     
             else if(!value.match(passwordPattern)) {
                 elem.innerText = "Password must contain alteast 1 lower, 1 upper, 1 numeric and 1 special characters";
                 elem.setAttribute("style", "color:red;");
+                setValid({...valid, validPassword: false});
             }
             else {
                 elem.innerText = ""; 
@@ -64,6 +68,7 @@ const Signup = () => {
             if(value.length !== 0 && user.password !== value) {
                 elem.innerText = "Password does not match";
                 elem.setAttribute("style", "color:red;");
+                setValid({...valid, validCPassword: false});
             }
             else {
                 elem.innerText = ""; 
