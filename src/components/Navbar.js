@@ -15,7 +15,7 @@ const Navbar = () => {
                 {localStorage.getItem('token') && (location.pathname === '/notes' || location.pathname === '/') && <li style = {{fontSize: '1.8rem', cursor: 'default', color:'white'}}> Welcome
                 <span style={{fontWeight:'bold', marginLeft:'.3rem'}}>{"   " + name.substring(0, 1).toUpperCase() + name.substring(1, name.length)}</span> </li>}
 
-                {(location.pathname === '/notes' || location.pathname ==="/") && localStorage.getItem('token') && localStorage.getItem('msg') !== "Token Expired" && <li> <NavLink to="/login" style = {{textDecoration: 'none', fontSize: '1.8rem', color: 'white'}} onClick = {()=> {localStorage.removeItem('token'); localStorage.removeItem('name'); localStorage.removeItem('msg'); location.replace("/")}}> Logout </NavLink> </li>}
+                {(location.pathname === '/notes' || location.pathname ==="/") && localStorage.getItem('token') && localStorage.getItem('msg') !== "Token Expired" && <li> <NavLink to="/login" class="logout" style = {{textDecoration: 'none', fontSize: '1.8rem', color: 'white'}} onClick = {()=> {localStorage.removeItem('token'); localStorage.removeItem('name'); localStorage.removeItem('msg'); location.replace("/")}}> Logout </NavLink> </li>}
             </ul>
         </div>
     );

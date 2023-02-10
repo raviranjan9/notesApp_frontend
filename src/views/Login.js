@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom';
 const Login = () =>{
     const navigate = useNavigate();
     const[user, setUser] = useState({email: "", password: ""});
+    const[isValidEmail, setIsValidEmail] = useState(false);
     let name, value;
     const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const handleInput = (event) => {
@@ -17,7 +18,10 @@ const Login = () =>{
                 document.getElementById("email").innerText = "Enter a valid email";
                 document.getElementById("email").setAttribute("style", "color:red;");
             }
-            else document.getElementById("email").innerText = "";
+            else {
+                document.getElementById("email").innerText = "";
+                setIsValidEmail(true);
+            }
         }
         if(name === "email" && value.length === 0) document.getElementById("email").innerText = "";
         if(name === "password" && value.length === 0) document.getElementById("password").innerText = "";
@@ -28,6 +32,7 @@ const Login = () =>{
         const {email, password} = user;
         try{
             event.preventDefault();
+            if(!isValidEmail) return;
             const res = await axios.post(`${BASE_URL}/login`, {
                 email: email, password: password
             });

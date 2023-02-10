@@ -44,13 +44,13 @@ const NotesContainer = (props) => {
             {(!localStorage.getItem('token') && (localStorage.getItem('msg') === "Please Login" || localStorage.getItem('msg') === "Token Expired")) && <h2 style={{textAlign: "Center", color:"red", fontSize:"3rem"}}>Please login to see notes </h2>}
             {localStorage.getItem('token') && <div className="wrapper">
                     <div className="search-field">
-                        <input type="text" placeholder ="Enter the title of note." value={search} onChange={handleInput} style={{height: "4rem", border: "2.5px solid black", fontSize:'1.5rem', padding: ".8rem"}}/>
+                        <input type="text" placeholder ="Enter title of note." value={search} onChange={handleInput} style={{height: "4rem", border: "2.5px solid black", fontSize:'1.5rem', padding: ".8rem"}}/>
                     </div>
                     <div className="sort-field">
                        <div className="sort-field-created">
                             <label>Sort by:</label>
                             <label>Date Created</label>
-                            <select name="CREATED" id="options-created" onChange={sortCreated} style={{border: "2.5px solid black", fontSize:'1.8rem', padding: ".8rem"}}>
+                            <select name="CREATED" id="options-created" onChange={sortCreated} style={{border: "2.5px solid black", fontSize:'1.8rem', textAlign:"center", padding: "1rem"}}>
                                 <option value="OLDEST">Oldest</option>
                                 <option value="LATEST">Latest</option>
                             </select>
@@ -58,7 +58,7 @@ const NotesContainer = (props) => {
                        <div className="sort-field-modified">
                             <label>Sort by:</label>
                             <label>Date Modified</label>
-                            <select name="MODIFIED" id="options-modified" onChange={sortModified} style={{border: "2.5px solid black", fontSize:'1.8rem', padding: ".8rem"}}>
+                            <select name="MODIFIED" id="options-modified" onChange={sortModified} style={{border: "2.5px solid black", fontSize:'1.8rem', textAlign:"center", padding: "1rem"}}>
                                 <option value="OLDEST">Oldest</option>
                                 <option value="LATEST">Latest</option>
                             </select>
